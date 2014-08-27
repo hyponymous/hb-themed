@@ -1,0 +1,22 @@
+{
+  "name": "harp-blog-template",
+  "version": "0.1.0",
+  "description": "A blog template",
+  "main": "app.js",
+  "scripts": {
+    "start": "harp server --port 9001",
+    "watch": "npm run start & mkdir -p public/js/ && watchify js/app.js -o public/js/bundle.js"
+  },
+  "author": "Mike Plotz",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^3.4.11",
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^5.9.1",
+    "watchify": "^1.0.1",
+    "harp": "^0.12.1"
+  }
+}
