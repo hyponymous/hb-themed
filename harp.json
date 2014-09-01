@@ -1,6 +1,6 @@
 {
-  "globals": {
-    "title": "Harp Blog Template",
-    "theme": "basic"
-  }
+    "globals": {
+        "site_name": "Harp Blog Template",
+        "theme": "basic"
+    }
 }

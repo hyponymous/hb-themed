@@ -1,6 +1,12 @@
-a(href="/") main
-div Post
 main
   article
+    pageData = public._data[current.source] 
+    .post-meta
+      h1= pageData.title
+      span.author= pageData.author
+      span at
+      span= pageData.date
+      if pageData.tags && pageData.tags.length > 0
+        span.tags= '[tags: ' + pageData.tags.join(', ') + ']'
     section
       != yield
