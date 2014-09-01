@@ -2,7 +2,14 @@ doctype
 html
   head
     title= title
-    link(rel="stylesheet" href="/main.css")
+    link(rel="stylesheet" href="/t/" + theme + "/main.css")
   body
-    != yield
+    pageData = public._data[current.source] 
+    if current.source === 'index'
+      != yield
+    else
+      if pageData && pageData.display
+        != partial(pageData.display)
+      else
+        != partial('_post')
     script(src="js/bundle.js")

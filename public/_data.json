@@ -1,0 +1,9 @@
+{
+    "post-test": {
+        "title": "Test Post"
+    },
+    "page-test": {
+        "title": "Test Page",
+        "display": "_page"
+    }
+}
