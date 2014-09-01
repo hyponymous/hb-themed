@@ -1,28 +1,22 @@
+- function themePage(page) { return '/t/' + theme + '/' + page; }
 doctype
 html
   head
     title= site_name
     link(rel="stylesheet" href="/t/" + theme + "/main.css")
-    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,700|Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css')
+    != partial(themePage('_head'))
   body
     pageData = public._data[current.source] 
 
-    header
-      a(href="/") main
+    != partial(themePage('/_header'))
 
     if current.source === 'index' || current.source === '404'
-      != partial('_main')
+      != partial(themePage('/_main'))
     else if pageData && pageData.display
-      != partial(pageData.display)
+      != partial(themePage('/') + pageData.display)
     else
-      != partial('_post')
+      != partial(themePage('/_post'))
 
-    footer
-      .content
-        section
-          = site_name
-        section
-          span published with 
-          a(href="http://harpjs.com") Harp
+    != partial(themePage('/_footer'))
 
-    script(src="js/bundle.js")
+    script(src="/js/bundle.js")
