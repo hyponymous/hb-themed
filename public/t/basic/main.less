@@ -3,6 +3,8 @@
 @dark-gray: #666;
 @medium-gray: #888;
 @light-gray: #aaa;
+@lighter-gray: #ddd;
+@lightest-gray: #f4f4f4;
 
 body {
     margin: 0;
@@ -42,17 +44,13 @@ header {
 }
 
 footer {
-    height: 250px;
+    height: 135px;
     width: 100%;
 
-    background-color: darkred;
-    color: #f5f1e4;
-    a {
-        &:link { color: @light-gray; }
-        &:visited { color: @light-gray; }
-        &:hover { color: @medium-gray; }
-        &:active { color: orange; }
-    }
+    border-top: 1px solid @lighter-gray;
+
+    background-color: @lightest-gray;
+
     font-family: 'Open Sans', sans-serif;
     font-size: 70%;
     font-weight: 300;
@@ -79,9 +77,6 @@ main {
         .post-meta {
 
             > span {
-                font-family: 'Open Sans', sans-serif;
-                font-weight: 300;
-
                 color: @dark-gray;
                 font-size: 75%;
                 &::before {
