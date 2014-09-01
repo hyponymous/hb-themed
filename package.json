@@ -4,7 +4,9 @@
   "description": "A blog template",
   "main": "app.js",
   "scripts": {
-    "start": "harp server --port 9001",
+    "compile": "node server.js --compile",
+    "clean": "rm -r www",
+    "start": "node server.js",
     "watch": "npm run start & mkdir -p public/js/ && watchify js/app.js -o public/js/bundle.js"
   },
   "author": "Mike Plotz",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "browserify": "^5.9.1",
     "watchify": "^1.0.1",
-    "harp": "^0.12.1"
+    "harp": "^0.12.1",
+    "highlight.js": "^8.2.0"
   }
 }
