@@ -6,14 +6,13 @@ html
     link(rel="stylesheet" href="/t/" + theme + "/main.css")
     != partial(themePage('_head'))
   body
-    pageData = public._data[current.source] 
 
     != partial(themePage('/_header'))
 
-    if current.source === 'index' || current.source === '404'
+    if (current.source === 'index' && current.path.length === 1) || current.source === '404'
       != partial(themePage('/_main'))
-    else if pageData && pageData.display
-      != partial(themePage('/') + pageData.display)
+    else if display
+      != partial(themePage('/' + display))
     else
       != partial(themePage('/_post'))
 
