@@ -2,7 +2,7 @@
 doctype
 html
   head
-    title= site_name
+    title= site_name + (title ? ' :: ' + title : '')
     link(rel="stylesheet" href="/t/" + theme + "/main.css")
     != partial(themePage('_head'))
   body
