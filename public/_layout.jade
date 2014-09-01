@@ -6,10 +6,9 @@ html
   body
     pageData = public._data[current.source] 
     if current.source === 'index'
-      != yield
+      != partial('_main')
+    else if pageData && pageData.display
+      != partial(pageData.display)
     else
-      if pageData && pageData.display
-        != partial(pageData.display)
-      else
-        != partial('_post')
+      != partial('_post')
     script(src="js/bundle.js")
