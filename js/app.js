@@ -12,7 +12,6 @@ $(document).ready(function() {
   var $window = $(window);
   var $topImage = $('.top-image');
   if ($topImage.length == 0) { return; }
-  console.log('got a top image');
 
   $window.scroll(function() {
     var top = $window.scrollTop();
