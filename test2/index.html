@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><title>Harp Blog Template :: 2nd Test</title><link rel="stylesheet" href="/t/basic/main.css"/><link rel="stylesheet" href="/t/basic/pojoaque.css"/><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,700|Libre+Baskerville:400,700,400italic|http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700" rel="stylesheet" type="text/css"/></head><body><div class="nav"><a href="/" class="main-link">[main]</a></div><main><div class="top-image-holder"><div style="transform:translate3d(0,0,0);opacity:1;background-image:url(/images/pano-1270x470.jpg);" class="top-image"></div></div><article class="offset"><div class="top-image-spacer"><div class="post-meta"><h1>2nd Test</h1><span class="author">Mike</span><span>at</span><span>Mon Sep  1 11:18:50 PDT 2014</span></div></div><section><h2 id="a-second-test-page">A Second Test Page</h2>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+</blockquote>
+<p>Yep. <code>inline</code> code.</p>
+<ul>
+<li>bullets</li>
+<li>are</li>
+<li>nice</li>
+</ul>
+<pre><code class="language-javascript hljs"><span class="hljs-built_in">require</span>(<span class="hljs-string">'harp'</span>).server(__dirname, { port: process.env.PORT || <span class="hljs-number">9001</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'server running'</span>);
+});
+
+<span class="hljs-keyword">var</span> marked = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./node_modules/harp/node_modules/terraform/node_modules/marked'</span>);
+<span class="hljs-keyword">var</span> highlight = <span class="hljs-built_in">require</span>(<span class="hljs-string">'highlight.js'</span>);
+
+marked.setOptions({
+  langPrefix: <span class="hljs-string">''</span>,
+  highlight: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(code, language)</span> </span>{
+    <span class="hljs-keyword">if</span> (language) {
+      <span class="hljs-keyword">return</span> highlight.highlight(language, code).value;
+    }
+
+    <span class="hljs-keyword">return</span> code;
+  }
+});
+</code></pre>
+</section></article></main><footer><div class="content"><section>Harp Blog Template</section><section><span>published with </span><a href="http://harpjs.com">Harp</a></section></div></footer><script src="/js/bundle.js"></script></body></html>
