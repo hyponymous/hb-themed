@@ -1,7 +1,8 @@
 {
-    "index": {
-        "title": "2nd Test",
-        "author": "Mike",
-        "date": "Mon Sep  1 11:18:50 PDT 2014"
-    }
+  "index": {
+    "title": "2nd Test",
+    "author": "Mike",
+    "date": "Mon Sep  1 11:18:50 PDT 2014",
+    "headerImage": "/images/pano-1270x470.jpg"
+  }
 }

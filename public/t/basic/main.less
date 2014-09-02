@@ -17,15 +17,22 @@ body {
   text-align: center;
 }
 
-header {
+.nav {
+  z-index: 100;
   display: block;
   position: fixed;
   left: 8px;
   top: 8px;
   width: 52px;
   height: 52px;
-  background-color: @lightest-gray;
-  border: 1px solid @lighter-gray;
+  background-color: black;
+  color: @lightest-gray;
+  a {
+    &:link { color: @lighter-gray; }
+    &:visited { color: @lighter-gray; }
+    &:hover { color: darkred; }
+    &:active { color: orange; }
+  }
 
   > .main-link {
     display: block;
@@ -35,6 +42,18 @@ header {
     width: 44px;
     height: 44px;
     font-size: 80%;
+  }
+}
+
+.top-image-holder {
+  overflow: hidden;
+  background-color: black;
+  border-bottom: 1px solid @darker-gray;
+  > .top-image {
+    width: 100%;
+    height: 360px;
+    background-size: cover;
+    background-position: center;
   }
 }
 
