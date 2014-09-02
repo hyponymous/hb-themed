@@ -1,19 +1,22 @@
-- function themePath(page) { return '/t/' + theme + '/' + page; }
+- function identity(arg) { return arg; }
+- function relPath(path) { var parts = []; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('../'); }; return parts.join('') + path; }
+- function themePath(page, relative) { return (relative ? relPath : identity)('t/' + theme + '/' + page); }
+- var funcs = { relPath: relPath, themePath: themePath };
 doctype
 html
   head
-    != partial(themePath('_head'), { themePath: themePath })
+    != partial(themePath('_head'), funcs)
   body
 
-    != partial(themePath('/_header'))
+    != partial(themePath('_header'))
 
     if (current.source === 'index' && current.path.length === 1) || current.source === '404'
-      != partial(themePath('/_main'))
+      != partial(themePath('_main'), funcs)
     else if display
-      != partial(themePath('/' + display))
+      != partial(themePath(display), funcs)
     else
-      != partial(themePath('/_post'))
+      != partial(themePath('_post'), funcs)
 
-    != partial(themePath('/_footer'))
+    != partial(themePath('_footer'))
 
     script(src="/js/bundle.js")

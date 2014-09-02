@@ -1,7 +1,7 @@
 main
   if headerImage
     div.top-image-holder
-      div.top-image(style="transform:translate3d(0,0,0);opacity:1;background-image:url(" + headerImage + ");")
+      div.top-image(style="transform:translate3d(0,0,0);opacity:1;background-image:url(" + relPath(headerImage) + ");")
   article
     section
       != yield
