@@ -7,92 +7,108 @@
 @lightest-gray: #f4f4f4;
 
 body {
-    margin: 0;
-    background-color: white;
-    color: @darker-gray;
-    font-family: 'Libre Baskerville', serif;
+  margin: 0;
+  background-color: white;
+  color: @darker-gray;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .page-404 {
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-    &:link { color: @medium-gray; }
-    &:visited { color: darkred; }
-    &:hover { color: red; }
-    &:active { color: orange; }
-}
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 110%;
-    margin: 0;
-    margin-top: 1em;
-}
-
-h1 {
-    font-size: 280%;
-}
-
-h2 {
-    font-size: 180%;
+  text-align: center;
 }
 
 header {
-    float: left;
-    margin: 10px;
+  display: block;
+  position: fixed;
+  left: 8px;
+  top: 8px;
+  width: 52px;
+  height: 52px;
+  background-color: @lightest-gray;
+  border: 1px solid @lighter-gray;
+
+  > .main-link {
+    display: block;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 44px;
+    height: 44px;
+    font-size: 80%;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:link { color: @medium-gray; }
+  &:visited { color: darkred; }
+  &:hover { color: red; }
+  &:active { color: orange; }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 110%;
+  margin: 0;
+  margin-top: 1em;
+}
+
+h1 {
+  font-size: 280%;
+}
+
+h2 {
+  font-size: 180%;
 }
 
 footer {
-    height: 135px;
-    width: 100%;
+  height: 135px;
+  width: 100%;
 
-    border-top: 1px solid @lighter-gray;
+  border-top: 1px solid @lighter-gray;
 
-    background-color: @lightest-gray;
+  background-color: @lightest-gray;
 
-    font-family: 'Open Sans', sans-serif;
-    font-size: 70%;
-    font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 70%;
+  font-weight: 300;
 
-    .content {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 50px;
-        > section {
-            text-align: center;
-        }
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px;
+    > section {
+      text-align: center;
     }
+  }
 
 }
 
 main {
-    max-width: 700px;
-    margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto;
 
-    article {
-        padding: 30px;
-        line-height: 150%;
+  article {
+    padding: 30px;
+    line-height: 150%;
 
-        .post-meta {
+    .post-meta {
 
-            > span {
-                color: @dark-gray;
-                font-size: 75%;
-                &::before {
-                    content: " ";
-                }
-
-                &.author {
-                    font-weight: 700;
-                }
-            }
-
+      > span {
+        color: @dark-gray;
+        font-size: 75%;
+        &::before {
+          content: " ";
         }
+
+        &.author {
+          font-weight: 700;
+        }
+      }
+
     }
+  }
 }
 
