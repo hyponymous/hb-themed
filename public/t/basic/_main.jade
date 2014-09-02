@@ -1,4 +1,12 @@
 main
-  article
+  if headerImage
+    div.top-image-holder
+      div.top-image(style="transform:translate3d(0,0,0);opacity:1;background-image:url(" + headerImage + ");")
+  article(class=headerImage ? 'offset' : '')
+    div(class=headerImage ? 'top-image-spacer' : '')
+      .site-meta
+        h1= site_name
+        if site_subtitle
+          span= site_subtitle
     section
       != yield

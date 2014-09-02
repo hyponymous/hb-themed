@@ -1,11 +1,20 @@
+mixin meta(title, author, tags)
+  .post-meta
+    h1= title
+    span.author= author
+    span at
+    span= date
+    if tags && tags.length > 0
+      span.tags= '[tags: ' + tags.join(', ') + ']'
 main
-  article
-    .post-meta
-      h1= title
-      span.author= author
-      span at
-      span= date
-      if tags && tags.length > 0
-        span.tags= '[tags: ' + tags.join(', ') + ']'
+  if headerImage
+    div.top-image-holder
+      div.top-image(style="transform:translate3d(0,0,0);opacity:1;background-image:url(" + headerImage + ");")
+  article(class=headerImage ? 'offset' : '')
+    if headerImage
+      div.top-image-spacer
+        +meta(title, author, tags)
+    else
+      +meta(title, author, tags)
     section
       != yield

@@ -1,4 +1,4 @@
-# Harp Blog Template
+## A Blog Template Built With Harp
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis vel mauris
 vitae feugiat. Phasellus non consequat nibh. Praesent feugiat dui venenatis nibh
