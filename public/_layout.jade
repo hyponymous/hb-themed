@@ -1,5 +1,5 @@
 - function identity(arg) { return arg; }
-- function relPath(path) { var parts = []; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('../'); }; return parts.join('') + path; }
+- function relPath(path) { var parts = ['.']; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('..'); }; parts.push(path); return parts.join('/'); }
 - function themePath(page, relative) { return (relative ? relPath : identity)('t/' + theme + '/' + page); }
 - var funcs = { relPath: relPath, themePath: themePath };
 doctype
@@ -8,7 +8,7 @@ html
     != partial(themePath('_head'), funcs)
   body
 
-    != partial(themePath('_header'))
+    != partial(themePath('_header'), funcs)
 
     if (current.source === 'index' && current.path.length === 1) || current.source === '404'
       != partial(themePath('_main'), funcs)
@@ -17,6 +17,6 @@ html
     else
       != partial(themePath('_post'), funcs)
 
-    != partial(themePath('_footer'))
+    != partial(themePath('_footer'), funcs)
 
     script(src=relPath('js/bundle.js'))
