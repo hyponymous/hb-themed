@@ -1,7 +1,11 @@
-- function identity(arg) { return arg; }
-- function relPath(path) { var parts = ['.']; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('..'); }; parts.push(path); return parts.join('/'); }
-- function themePath(page, relative) { return (relative ? relPath : identity)('theme/' + theme + '/' + page); }
-- var funcs = { relPath: relPath, themePath: themePath };
+- var is404 = (current.source === '404')
+- function themePath(page) { return 'theme/' + theme + '/' + page; }
+-// 404 pages don't give you path information, so just use the absolute path;
+-// this breaks when site is hosted in a subdir like in github pages, but 404
+-// doesn't work right on github pages anyway
+- function relPath(path) { if (is404) { return '/' + path; } var parts = ['.']; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('..'); }; parts.push(path); return parts.join('/'); }
+- function relThemePath(page) { return relPath(themePath(page)); }
+- var funcs = { relPath: relPath, relThemePath: relThemePath };
 doctype
 html
   head
@@ -10,7 +14,9 @@ html
 
     != partial(themePath('_header'), funcs)
 
-    if (current.source === 'index' && current.path.length === 1) || current.source === '404'
+    if is404
+      != partial(themePath('_page'), funcs)
+    else if (current.source === 'index' && current.path.length === 1)
       != partial(themePath('_main'), funcs)
     else if display
       != partial(themePath(display), funcs)
