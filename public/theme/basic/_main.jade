@@ -10,13 +10,22 @@ main
           span= site_subtitle
     section
       != yield
-    section
-      ul
-        each post in public._data._posts
-          li
-            - var linkTitle
-            if post in public
-              - linkTitle = public[post]._data['index'].title
-            else
-              - linkTitle = public._data[post].title;
-            a(href=relPath(post))= linkTitle
+    -// TODO: paginate post list
+    section.post-list
+      each post, i in public._data._posts.slice(0).reverse()
+        if i > 0
+          hr
+        section.post-meta
+          - var postData
+          if post in public
+            - postData = public[post]._data['index']
+          else
+            - postData = public._data[post];
+
+          h1
+            a(href=relPath(post))= postData.title
+          span.author= postData.author
+          span at
+          span= postData.date
+          if postData.tags && postData.tags.length > 0
+            span.tags= '[tags: ' + postData.tags.join(', ') + ']'

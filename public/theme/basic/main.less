@@ -35,7 +35,6 @@ body {
     &:link { color: @lighter-gray; }
     &:visited { color: @lighter-gray; }
     &:hover { color: darkred; }
-    &:active { color: orange; }
   }
 
   font-size: 1.1em;
@@ -138,7 +137,6 @@ a {
   &:link { color: @medium-gray; }
   &:visited { color: darkred; }
   &:hover { color: red; }
-  &:active { color: orange; }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -192,7 +190,18 @@ main {
     line-height: 150%;
 
     .post-meta {
+      margin: 3em 0;
+
       .dark-text;
+      a {
+        &:link { color: @darker-gray; }
+        &:visited { color: @darker-gray; }
+        &:hover { color: darkred; }
+      }
+
+      > h1 {
+        margin: 0;
+      }
 
       > span {
         font-size: 0.75em;
