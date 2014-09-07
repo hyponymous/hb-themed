@@ -5,6 +5,7 @@
 // Scales
 // =============================================================================
 
+@darkest-gray: #111;
 @darker-gray: #333;
 @dark-gray: #666;
 @medium-gray: #888;
@@ -20,7 +21,7 @@
 @z-index-higher: 60;
 @z-index-highest: 90;
 
-@nav-height: 50px;
+@nav-height: 40px;
 
 // =============================================================================
 // Default Styling
@@ -124,19 +125,17 @@ h2 {
   z-index: @z-index-high;
   display: block;
   position: fixed;
-  left: 8px;
-  top: 8px;
-  background-color: black;
-  color: @lightest-gray;
+  margin: 4px;
+  background-color: rgba(255, 255, 255, 0.75);
   a {
-    &:link { color: @lighter-gray; }
-    &:visited { color: @lighter-gray; }
+    &:link { color: @darker-gray; }
+    &:visited { color: @darker-gray; }
     &:hover { color: darkred; }
   }
 
   font-size: 1.1em;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
 
   > ul {
     list-style: none;
@@ -160,6 +159,7 @@ h2 {
 @media screen and (max-width: 52em) {
   .nav {
     position: static;
+    margin: 0;
 
     > ul {
       > li {
