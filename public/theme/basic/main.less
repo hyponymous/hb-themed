@@ -1,6 +1,10 @@
 
 @import "elements.less";
 
+// =============================================================================
+// Scales
+// =============================================================================
+
 @darker-gray: #333;
 @dark-gray: #666;
 @medium-gray: #888;
@@ -8,7 +12,19 @@
 @lighter-gray: #ddd;
 @lightest-gray: #f4f4f4;
 
+@z-index-lowest: -90;
+@z-index-lower: -60;
+@z-index-low: -30;
+@z-index-middle: 0;
+@z-index-high: 30;
+@z-index-higher: 60;
+@z-index-highest: 90;
+
 @nav-height: 50px;
+
+// =============================================================================
+// Default Styling
+// =============================================================================
 
 body {
   margin: 0;
@@ -18,65 +34,32 @@ body {
   font-size: 100%;
 }
 
-.page-404 {
-  text-align: center;
+a {
+  text-decoration: none;
+  &:link { color: @medium-gray; }
+  &:visited { color: darkred; }
+  &:hover { color: red; }
 }
 
-.nav {
-  .transform(translate3d(0, 0, 0));
-  z-index: 100;
-  display: block;
-  position: fixed;
-  left: 8px;
-  top: 8px;
-  background-color: black;
-  color: @lightest-gray;
-  a {
-    &:link { color: @lighter-gray; }
-    &:visited { color: @lighter-gray; }
-    &:hover { color: darkred; }
-  }
-
-  font-size: 1.1em;
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-
-  > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    > li {
-      display: block;
-      padding: 0 1.2em;
-      height: @nav-height;
-
-      .current {
-        color: @medium-gray;
-      }
-      > a,
-      > span {
-        line-height: @nav-height;
-      }
-    }
-  }
+  letter-spacing: -0.03em;
+  line-height: 110%;
+  margin: 0;
+  margin-top: 1em;
 }
 
-@media screen and (max-width: 52em) {
-  .nav {
-    position: static;
+h1 {
+  font-size: 2.8em;
+}
 
-    > ul {
-      > li {
-        display: inline-block;
-      }
-    }
-  }
+h2 {
+  font-size: 1.8em;
+}
 
-  main {
-    article {
-      margin-top: -@nav-height;
-    }
-  }
+.page-404 {
+  text-align: center;
 }
 
 .dark-text {
@@ -132,51 +115,58 @@ body {
   }
 }
 
-a {
-  text-decoration: none;
-  &:link { color: @medium-gray; }
-  &:visited { color: darkred; }
-  &:hover { color: red; }
-}
+// =============================================================================
+// Page Components
+// =============================================================================
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 110%;
-  margin: 0;
-  margin-top: 1em;
-}
-
-h1 {
-  font-size: 2.8em;
-}
-
-h2 {
-  font-size: 1.8em;
-}
-
-footer {
-  height: 135px;
-  width: 100%;
-
-  border-top: 1px solid @lighter-gray;
-
-  background-color: @lightest-gray;
-
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.7em;
-  font-weight: 300;
-
-  .content {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 50px;
-    > section {
-      text-align: center;
-    }
+.nav {
+  .transform(translate3d(0, 0, 0));
+  z-index: @z-index-high;
+  display: block;
+  position: fixed;
+  left: 8px;
+  top: 8px;
+  background-color: black;
+  color: @lightest-gray;
+  a {
+    &:link { color: @lighter-gray; }
+    &:visited { color: @lighter-gray; }
+    &:hover { color: darkred; }
   }
 
+  font-size: 1.1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li {
+      display: block;
+      padding: 0 1.2em;
+      height: @nav-height;
+
+      .current {
+        color: @medium-gray;
+      }
+      > a,
+      > span {
+        line-height: @nav-height;
+      }
+    }
+  }
+}
+@media screen and (max-width: 52em) {
+  .nav {
+    position: static;
+
+    > ul {
+      > li {
+        display: inline-block;
+      }
+    }
+  }
 }
 
 main {
@@ -214,6 +204,35 @@ main {
         }
       }
 
+    }
+  }
+}
+@media screen and (max-width: 52em) {
+  main {
+    article {
+      margin-top: -@nav-height;
+    }
+  }
+}
+
+footer {
+  height: 135px;
+  width: 100%;
+
+  border-top: 1px solid @lighter-gray;
+
+  background-color: @lightest-gray;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.7em;
+  font-weight: 300;
+
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px;
+    > section {
+      text-align: center;
     }
   }
 }
