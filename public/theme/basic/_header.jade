@@ -1,0 +1,17 @@
+.nav
+  ul
+    each page in public._data._pages
+      - var linkTitle
+      if page in public
+        - linkTitle = public[page]._data['index'].title
+      else
+        - linkTitle = public._data[page].title;
+
+      li
+        -// '/page' or '/page/index':
+        if (current.path.length === 1 || (current.path.length === 2 && current.path[1] === 'index')) && current.path[0] === page
+          span.main-link.current= linkTitle
+        else
+          -// 'index' should be just ''
+          - var path = page === 'index' ? '' : page
+          a.main-link(href=relPath(path))= linkTitle

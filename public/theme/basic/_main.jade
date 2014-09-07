@@ -10,3 +10,13 @@ main
           span= site_subtitle
     section
       != yield
+    section
+      ul
+        each post in public._data._posts
+          li
+            - var linkTitle
+            if post in public
+              - linkTitle = public[post]._data['index'].title
+            else
+              - linkTitle = public._data[post].title;
+            a(href=relPath(post))= linkTitle

@@ -1,14 +1,14 @@
 {
+  "_pages": [
+    "index",
+    "about"
+  ],
+  "_posts": [
+    "test-post",
+    "test-post2"
+  ],
   "index": {
+    "title": "Main",
     "headerImage": "images/pano-1270x470.jpg"
-  },
-  "post-test": {
-    "title": "Test Post",
-    "author": "Mike",
-    "date": "2013-12-29 23:16:58+00:00"
-  },
-  "page-test": {
-    "title": "Test Page",
-    "display": "_page"
   }
 }

@@ -26,8 +26,6 @@ body {
   position: fixed;
   left: 8px;
   top: 8px;
-  width: 52px;
-  height: 52px;
   background-color: black;
   color: @lightest-gray;
   a {
@@ -37,14 +35,28 @@ body {
     &:active { color: orange; }
   }
 
-  > .main-link {
-    display: block;
+  font-size: 1.1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li {
+      display: block;
+      padding: 1.2em;
+
+      .current {
+        color: @medium-gray;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .nav {
     position: absolute;
-    left: 4px;
-    top: 4px;
-    width: 44px;
-    height: 44px;
-    font-size: 0.8em;
   }
 }
 

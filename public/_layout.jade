@@ -1,6 +1,6 @@
 - function identity(arg) { return arg; }
 - function relPath(path) { var parts = ['.']; for(var i = current.path.length - 2; i >= 0; i--) { parts.push('..'); }; parts.push(path); return parts.join('/'); }
-- function themePath(page, relative) { return (relative ? relPath : identity)('t/' + theme + '/' + page); }
+- function themePath(page, relative) { return (relative ? relPath : identity)('theme/' + theme + '/' + page); }
 - var funcs = { relPath: relPath, themePath: themePath };
 doctype
 html

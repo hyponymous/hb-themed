@@ -1,4 +1,4 @@
-## A Second Test Page
+## Behold, A Test Post
 
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
 > consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
@@ -10,8 +10,10 @@
 Yep. `inline` code.
 
 * bullets
-* are
-* nice
+* *are*
+* **nice**
+
+A [link](https://github.com/hyponymous/hb-themed) to a nifty project.
 
 ```javascript
 require('harp').server(__dirname, { port: process.env.PORT || 9001 }, function() {
