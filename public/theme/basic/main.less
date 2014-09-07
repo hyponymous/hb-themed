@@ -8,6 +8,8 @@
 @lighter-gray: #ddd;
 @lightest-gray: #f4f4f4;
 
+@nav-height: 50px;
+
 body {
   margin: 0;
   background-color: @lightest-gray;
@@ -21,6 +23,7 @@ body {
 }
 
 .nav {
+  .transform(translate3d(0, 0, 0));
   z-index: 100;
   display: block;
   position: fixed;
@@ -45,18 +48,35 @@ body {
     padding: 0;
     > li {
       display: block;
-      padding: 1.2em;
+      padding: 0 1.2em;
+      height: @nav-height;
 
       .current {
         color: @medium-gray;
+      }
+      > a,
+      > span {
+        line-height: @nav-height;
       }
     }
   }
 }
 
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 52em) {
   .nav {
-    position: absolute;
+    position: static;
+
+    > ul {
+      > li {
+        display: inline-block;
+      }
+    }
+  }
+
+  main {
+    article {
+      margin-top: -@nav-height;
+    }
   }
 }
 
@@ -166,7 +186,8 @@ main {
 
   article {
     max-width: 38em;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 30px 10px;
     line-height: 150%;
 
