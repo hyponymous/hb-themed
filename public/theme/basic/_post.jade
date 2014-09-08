@@ -18,3 +18,13 @@ main
       +meta(title, author, tags)
     section
       != yield
+    if disqus_shortname && !commentsClosed
+      div(id="disqus_thread")
+      script!= 'var disqus_shortname = "' + disqus_shortname + '";'
+      script
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      a(href="http://disqus.com" class="dsq-brlink") comments powered by
